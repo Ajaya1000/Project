@@ -30,24 +30,26 @@ def all_img_captions(filename):
 
 #Data cleaning
 def cleaning_text(captions):
-    table=str.maketrans(" " * len(string.punctuation),string.punctuation)
+    table = str.maketrans('','',string.punctuation)
     for img,caps in captions.items():
         for i,img_caption in enumerate(caps):
+
             img_caption.replace("-"," ")
             desc = img_caption.split()
+
             #converts to lowercase
-            
             desc = [word.lower() for word in desc]
             #remove punctuation from each token
-            desc  = [word.translate(table) for word in desc]
-            #remove hanging 's and a
+            desc = [word.translate(table) for word in desc]
+            #remove hanging 's and a 
+            desc = [word for word in desc if(len(word)>1)]
+            #remove tokens with numbers in them
             desc = [word for word in desc if(word.isalpha())]
-            
             #convert back to string
-            img_caption= ''.join(desc)
-            captions[img][i]=img_caption
-    return captions
 
+            img_caption = ' '.join(desc)
+            captions[img][i]= img_caption
+    return captions
 def text_vocabulary(descriptions):
     #build vocabulary of all unique words
     vocab = set ()
