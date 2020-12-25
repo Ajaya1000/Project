@@ -28,3 +28,4 @@ dataset_text = "D:\Machine Learning projects\Image_Caption_Generator\Flicker8k_T
 dataset_images = "D:\Machine Learning projects\Image_Caption_Generator\Flicker8k_Dataset"
 
 
+#some changes
