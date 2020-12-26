@@ -29,7 +29,6 @@ dataset_text = "D:\Machine Learning projects\Image_Caption_Generator\Flicker8k_T
 dataset_images = "D:\Machine Learning projects\Image_Caption_Generator\Flicker8k_Dataset"
 
 
-<<<<<<< HEAD
 #We prepare out text data
 filename = dataset_text+ "/" + "Flickr8k.token.txt"
 #loading the file that contains all data
@@ -72,14 +71,3 @@ features = load(open("features.p","rb"))
 
 
 
-
-
-
-
-
-
-
-
-=======
-#some changes
->>>>>>> ddf24f81796a8ddf49960a5716df0d41da12b4cd
