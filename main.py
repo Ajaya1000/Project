@@ -44,6 +44,36 @@ vocabulary = text_vocabulary(clean_descriptions)
 print("Lenght of vocabulary= ",len(vocabulary))
 #saving each description to file
 save_description(clean_descriptions,"descriptions.txt")
+"""
+def extract_features(directory):
+    model = Xception(include_top=False,pooling='avg')
+    features = {}
+    for img in tqdm(os.listdir(directory)):
+        filename = directory+"/"+img
+        image = Image.open(filename)
+        image = image.resize((299,299))
+        image = np.expand_dims(image,axis=0)
+        image = image/127.5
+        image = image - 1.0
+        
+        feature = model.predict(image)
+        features[img] = feature
+    return features
+
+features = extract_features(dataset_images)
+dump(features, open("features.p","wb"))
+"""
+features = load(open("features.p","rb"))
+
+
+
+
+
+
+
+
+
+
 
 
 

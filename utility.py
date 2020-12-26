@@ -69,6 +69,35 @@ def save_description(descriptions,filename):
     file.write(data)
     file.close()
     
+### for loading training dataset
+
+#load the data
+def load_photos(filename):
+    file = load_doc(filename)
+    photos = file.split("\n")[:-1]
+    return photos
+
+def load_clean_description(filename,photos):
+    #loading clean-description
+    file = load_doc(filename)
+    descriptions = {}
+    
+    for line in file.split("\n"):
+        words = line.split()
+        if len(words)<1:
+            continue
+        
+        image, image_caption = words[0],words[1:]
+        
+        if image in photos:
+            if image not in descriptions:
+                descriptions[image] = []
+            desc = '<start>'+"".join(image_caption)+'<end>'
+            descriptions[image].append(desc)
+    return descriptions
+
+def load_features(photos):
+    
 
     
 
