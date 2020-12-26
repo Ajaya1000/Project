@@ -65,9 +65,24 @@ dump(features, open("features.p","wb"))
 """
 features = load(open("features.p","rb"))
 
+filename = dataset_text + "/"+"Flickr_8k.trainImages.txt"
 
+train_imgs = load_photos(filename)
+train_descriptions = load_clean_description("descriptions.txt",train_imgs)
 
+train_features = load_features(train_imgs)
 
+#give each word an index , and store that into
+#tokenizer.p pickle file
+
+tokenizer = create_tokenizer(train_descriptions)
+dump(tokenizer,open('tokenizer.p','wb'))
+
+vocab_size = len(tokenizer.word_index) + 1
+vocab_size
+
+max_length = max_length(descriptions)
+max_length
 
 
 
